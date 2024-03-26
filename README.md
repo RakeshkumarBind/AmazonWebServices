@@ -46,7 +46,46 @@ There are three types of cloud comuting
 ![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/1b8999b9-59bf-49eb-b4ed-48d9d3aec958)
 
 
-## NETWORKING :
+# NETWORKING :
+##   VPC VIRTUAL PRIVATE CLOUD 
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/21da6838-572d-4518-847c-ea08eabdcbdd)
+
+TWO vpc cannot communicate with each other because they are isolated but they can communicate if configured.
+
+VPC cannot extend over multiple reguions.
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/65109c55-d6dd-4419-8ba0-09cec2648207)
+
+
+## SUBNETS 
+It is a network within a network.
+It is a logical division of network to smaller network.
+with the help of subnet mask we can know the available ip address.
+255.255.255.0      192.168.1.0/24  it indicates the 4 octet i can be occupied from 0-255 as 1 octet in binary is represented by 8 bytes so total of 32 are there.
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/ad31840a-447c-4ed8-bf4c-28075444c143)
+
+
+
+
+
+# INTERNET GATEWAY
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/edd8d0c7-2270-48f3-98a6-d6c6a64a932c)
+
+
+
+
+# What is the difference between public subnet and private subnet ?
+It is the route table that makes the difference .
+Public subnet routes the traffic to internet gateway.
+Private subnet routes it locally.
+
+
+
+
+
 
 
 
