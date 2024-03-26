@@ -41,6 +41,13 @@ There are three types of cloud comuting
 5.Go global with services like s3 bucket
 6.Stop guessing capacity you can scale up and down using auto scaling groups.
 
+
+# RESPONSIBILITY :
 ![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/1b8999b9-59bf-49eb-b4ed-48d9d3aec958)
+
+
+## NETWORKING :
+
+
 
    
