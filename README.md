@@ -162,7 +162,53 @@ paste the output of keygen or check whether it matches the previous one if it is
 
 ![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/f8e331df-efb9-4a6b-ac6e-42de2e61feb3)
 
+## NOTE : T2.MICRO DOES NOT SUPPORT SERIAL CONSOLE
 
+CAHNGE INSTANCE TYPE FROM T2.MICRO TO T3.MICRO
+
+Now only running instance have the serial console access so make sure to start the instance.
+
+Now go to ec2 dashboard -------> account attributes ----------> serial conole (by default it is prevented beacause anyone is not allowed)
+
+------> allow serial console
+
+Now i am going to do ssh the instance or vitual machine and create a user
+
+before that go to the directory where i have stored the krivate key
+
+ssh -i key.pem ec2-user@ipaddresoftheinstance
+
+sudo adduser serialadmin
+sudo passwd
+
+The Linux operating system has a special group named wheel. The wheel group is intended for all users who should be granted superuser privileges upon request. The wheel group will normally exist upon installing Linux. You normally will not need to create this group, although you may if the group does not already exist.
+
+usermod -aG wheel serialadmin
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/a0b08914-d3fc-421f-b4be-c506deb74c69)
+
+sudo nana /etc/ssh/sshd_config
+crtl + w to seearch
+Password_authentication yes 
+ctrl + x to exit and save
+sudo systemctl restart sshd
+
+Now i can access it without providing the key [pair 
+
+ssh serialadmin@ip
+passwd : type the password
+
+Now go to console to access serial console
+
+Instance -----> action ------> monitor and troubleshoot -----> ec2 serial consp;e
+
+## EC2 Serial Console for Linux instances
+
+With the EC2 serial console, you have access to your Amazon EC2 instance's serial port, which you can <b> use to troubleshoot boot, network configuration, and other issues</b>. The serial console does not require your instance to have any networking capabilities. With the serial console, you can enter commands to an instance as if your keyboard and monitor are directly attached to the instance's serial port. The serial console session lasts during instance reboot and stop. During reboot, you can view all of the boot messages from the start.
+
+Access to the serial console is not available by default. Your organization must grant account access to the serial console and configure IAM policies to grant your users access to the serial console. Serial console access can be controlled at a granular level by using instance IDs, resource tags, and other IAM levers. For more information, see Configure access to the EC2 Serial Console.
+
+The serial console can be accessed by using the EC2 console or the AWS CLI.
 
 
 
