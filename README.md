@@ -106,5 +106,62 @@ with the help of subnet mask we can know the available ip address.
 
 
 
+# ec2 instance
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/df244dcd-d57e-4d4d-b4b6-9dc696df3c5e)
+
+Key pair are used as an authenticatio  for accesing instance
+
+public keys are inside the instance while private key is inside the client sysytem here your laptop.
+
+# Access reagin private key if it is lost using the private key of other instances.
+
+To do so you nedd two instance one whose private key you have and another one whose private key is lost.
+
+Firstly i am going to connect to my instance whose private key i have 
+
+terminal : ssh -i downloads/key.pem ec2-user@publicipaddressofinstance
+connected successfully
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/ca3ae168-2cb0-4e1f-9d3a-31f4de5be647)
+
+
+cd /home/ec2-users/.ssh
+cat authorized keys
+copy it ------------------> this is the public key of that instance.
+
+Now you have to put this public key to the instance whose private key is lost.
+
+Now using aws console direct instance connect for browser i am going to cionnect my instance.
+
+cd /home/ec2-users/.ssh
+cat authorized keys
+vi autghorizd keys
+
+Paste it 
+
+Now with the terminal: ssh -i oldkey ec2-user@ip
+
+
+# REGAIN ACCES IN EC2 INSTANCE IF PUBLIC KEY IS LOST
+
+We can get public key using private key
+go to terminal 
+
+ssh-keygen -y -f locationofprivatekey   -----------------> returns the public key associated with the private key.
+
+Go to the ec2 instance using direct connect from the aws console and then 
+
+cd /home/ec2-user/.ssh
+cat authorized keys
+vi authorized keys
+paste the output of keygen or check whether it matches the previous one if it is already tere
+
+
+
+
+
+
+
 
    
