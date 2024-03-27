@@ -160,7 +160,7 @@ paste the output of keygen or check whether it matches the previous one if it is
 
 # CONNECTING LINUX EC2 VIA SERIAL CONSOLE :
 
-                            ![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/f8e331df-efb9-4a6b-ac6e-42de2e61feb3)
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/f8e331df-efb9-4a6b-ac6e-42de2e61feb3)
 
 
 
