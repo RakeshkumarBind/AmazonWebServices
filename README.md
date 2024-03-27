@@ -78,12 +78,30 @@ with the help of subnet mask we can know the available ip address.
 
 
 # What is the difference between public subnet and private subnet ?
-It is the route table that makes the difference .
-Public subnet routes the traffic to internet gateway.
-Private subnet routes it locally.
+                    1.It is the route table that makes the difference .
+                    2.Public subnet routes the traffic to internet gateway.
+                    3.Private subnet routes it locally.
+                    4.Public subnet is exposed publically while private is not exposed publicly.
 
 
 
+
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/381bf7fb-129c-4268-85cc-72b0f72b4f63)
+
+
+# CONNECTING TO YOUR INSTANCE VIA SSH 
+                                           ssh -i ky.pem user@public ip ( make sure to change the permission of key to 700 as it is not encrypted so anyone can have access to it )
+                                           by default user name is ec2-user
+                                    
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/48cc2605-bc43-49de-870b-dcece8940d0c)
+
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/c579d568-1b12-48ef-917d-35d84aeca2a6)
+
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/36ad1f62-9371-4157-ae62-3e7b1cc01d02)
 
 
 
