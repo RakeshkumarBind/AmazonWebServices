@@ -212,5 +212,24 @@ The serial console can be accessed by using the EC2 console or the AWS CLI.
 
 
 
+## ADDING IAM POLICIES 
+
+Go to policies (IAM)
+Create new policies 
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/18b6f852-4822-4c69-9b40-a2ec9bd15668)
+
+add above json format
+
+and then attach the policies to user or group.
+
+hera user so attach the users.
+
+
+# window serial console
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/06e82120-c3c1-4959-9032-7f31c3031989)
+
+
 
    
