@@ -230,6 +230,13 @@ hera user so attach the users.
 
 ![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/06e82120-c3c1-4959-9032-7f31c3031989)
 
-
-
+  1. Connect to the window instance using rdp client.
+  2. retrieve the password from the private key.
+  3. connect to the window instance with administrator user.
+  4. computer management ------> user --------> new user ( user cannot change password option ).
+  5. now open command prompt and enable sac and boot menu .
+  6. reboot the system using shutdown /r /t 0 (restart time 0s)
+  7. and now connect the rdp again but this time provide the user as member of administrator group
+  8. computer management --- > local and groups ----> users -----> group add (administrator)
+  9. foolow the steps to diable the ssh and using console try to enable it
    
