@@ -239,4 +239,81 @@ hera user so attach the users.
   7. and now connect the rdp again but this time provide the user as member of administrator group
   8. computer management --- > local and groups ----> users -----> group add (administrator)
   9. foolow the steps to diable the ssh and using console try to enable it
-   
+
+
+
+# Creating launch instance template
+
+Launcgh template are used to create configured instance so that same seting should not be provided each time for creating same type of instance .
+
+ec2 dashboard ------> instance -------> launch template
+
+# AUTOSCALING 
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/5e348ec9-f759-4e3b-9225-9b4b063d1771)
+
+Auto Scaling Groups (ASG) contains a collection of EC2 instances that are treated as a group for the purpose of automatic scaling and management. Scaling out is when we add server, scaling in is when we remove server and scaling up is when we increase the size of an instance.
+
+Automatic scaling can occur via
+
+Capacity Settings
+Health Check Replacements
+Scaling Policies
+
+Capacity Settings : The simplest way to use Auto Scaling Group is through Capacity Settings.
+
+The size of an ASG is based on Min, Max and Desired Capacity. Min is how many EC2 instances should at least be running. Max is the number of EC2 instances allowed to run. Desired capacity is how many EC2 instances, you want to run ideally. ASG will always launch instances to meet minimum capacity.
+
+Health Check Replacements : We can also achieve auto scaling through Health Check. Health check can be run on EC2 or ELB instances. ASG will perform a health check on EC2 instances to determine if there is a software or hardware issue. If an instance is unhealthy ASG will terminate that instance and launch new one. For ELB type, the health check is performed on ELB health check, which can be performed by a ping to endpoint. If it does not get the desired response, let’s say 200 OK, it will assume that the instance is unhealthy, hence spin up new one.
+
+Scaling Poilicies : The last way by which ASG is triggered through scaling policies. First type of scaling policy is Target Tracking Scaling policy which maintains a specific metric at a target value, e.g., if average CPU utilization exceeds 80%, then add another instance. Its either Scaling out — Adding more instances or Scaling in — removing instances. The second type of scaling policy is Simple Scaling Policy, which scales when an alarm is breached.
+
+ASG Use Case : Let’s say we have one EC2 instance is running and a lot of traffic hitting our domain from internet. Route%3 points that traffic to our load balancer. The load balancer sends that traffic to the target group. The target group associated with our ASG and sends the traffic to the insatnces associated with the ASG. The ASG scaling policy will check, whether the resource utilization exceeds 80%. Then the scaling policy decides we need another instance and it launches a new EC2 instance with the associated launch configuration to our ASG.
+
+Launch Configuration : A launch configuration is an instance configuration template taht an Auto Scaling Group uses to launch an EC2 instance. It is similar as to launching an instance, only saving a template for later use. Launch configuration cannot be edited, whenever you need to update the launch configuration, you need to create a new one.
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/a9c41ccb-c71e-4df0-be9e-9320a7b665fa)
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/998ae1b9-21d2-4c91-a8a4-20d5ec841d08)
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/07ed1ba3-30fe-468b-a790-8ddd41dc0933)
+
+NACLs vs. Security Groups
+NACLs and Security Groups (SGs) have very similar purposes. They filter traffic based on rules, to ensure that only authorized traffic is routed to its destination. Here we will highlight the differences between the two. Below is a high-level graphic that shows their usage and contrasts the two technologies.
+
+
+
+Image comparing a NACL to a  Security Group
+
+## NACLs
+NACLs are used to controll access to network resources. They sit on subnets and evaluate traffic based on set rules, then determine whether or not that traffic should be allowed to continue. This applies traffic-based access control to your network, and is a powerful way to help secure your environment.
+
+NACLs are “stateless”and require you to create separate rules for both  incoming and outgoing traffic. Just because a particular data stream is allowed in, doesn’t mean it will be allowed out.
+
+NACLs are processed in number order. Therefore, if you need traffic to go both in and out of a protected subnet, you will  need to write rules for both directions.
+
+What is particularly useful about NACLs, is that they are automatically applied to anything that falls under their umbrella. There is no need to apply NACLs to individual resources as they are created.
+
+Security Groups
+Security Groups apply to EC2 instances and act as a host-based firewall. Like NACLs, they utilize rules that determine if traffic going to or from a given EC2 instance should be allowed.
+
+This provides granular traffic control for resources that have specific network requirements. Security Groups, unlike NACLs, are stateful; this means that any traffic allowed into your EC2 instance, will automatically be allowed out, and vice versa. All security groups rules are evaluated simulataineously; if no ALLOW exists, then traffic will be blocked.
+
+Security Groups need to be applied at the time of resource creation and must be explicitly configured. This means that planning is necessary in order to ensure functional application of traffic blocking rules.
+
+## Similarities and Differences
+Both NACLs and Security Groups utilize rules that prevent unwanted traffic in your environment. The rules themselves also look very similar. However, one difference between them, is that NACLs allow for DENY rules to be created.
+
+The largest difference, though,  is where they are applied. This is important, because it helps define their function and how they should be used. NACLs are applied at the subnet level, while Security Groups are applied at the EC2 level. NACLs protect the network while Security Groups help protect the resource. This helps shape your security strategy.
+
+As NACLs are higher in the architecture, they apply to a much wider group of resources. Any rule you create will therefor affect the operation of every resource in the subnet. Security Groups on the other hand, only affect the EC2 instances that they are applied to.
+
+Despite their differences, these two layers work together to create overall defense-in-depth for your cloud environment. When planned appropriately, NACLs can remove the traffic burden from the subnet, improving security and optimizing performance.
+
+They can also provide a means of troubleshooting, as layering traffic makes it easier to segment and investigate. For example, when investigating suspicious traffic: it’s easier to look through the logs of a smaller network segment,  as  you know that it would be impossible for traffic to have gone elsewhere.
+
+Unfortunately, they occasionally work against one other. Bad planning and maintenance can create a web of rules that can be almost impossible to untangle. It is in your best interest to follow the guidance around applying these services, in a way that is effective and maintainable.
+
+
+
+<b> NACL ARE ASSOCIATED WITH SUBNETS WHILE SECURITY GROUPS ARE ASSOCIATED WITH RESOURCES AND INSTANCE </b>
