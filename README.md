@@ -317,3 +317,5 @@ Unfortunately, they occasionally work against one other. Bad planning and mainte
 
 
 <b> NACL ARE ASSOCIATED WITH SUBNETS WHILE SECURITY GROUPS ARE ASSOCIATED WITH RESOURCES AND INSTANCE </b>
+
+VPC racks and server when we want to create our own infrastructure than we can use vpc racks while using server we can add resource.Both are installed on our local premise but we have to configure it and connect to our regions over vpc networks we have both on premise network as well as internet our direct connect over regions .
