@@ -326,6 +326,22 @@ VPC racks and server when we want to create our own infrastructure than we can u
 There are different types of storages
     1.Elastic block storage
     2.file 
-    3.S3 bucket
+    3. Object S3 bucket
 
-  
+  ![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/df1ef952-0acc-440b-a822-2f7692e34407)
+
+  S3 bucket has many storage classes:
+                                        1.S3 standard ---------> Access frequently in millisecond , example:webserver
+                                        2.S3 INFREQUENT ACCESS S1A -----------> Not frequently but in millisecond
+                                        3.S3  ONE XONE INFREQUENT ACCESS --------> Only differeence from above is that it is stored in single availability zone while other are backed up in multiple availabiility zines
+                                        4.S3 GLACIER ----------> Archival group for storing data for longer duration in milliseconds
+                                        5.S3 GLACIER FLEXIBLE -----> Longer duration archival dtaa but you select type expedite---5 mn retrieval time  standard 20 min and 2 hr
+                                        6.S3 GLACIER DEEP ARCHIVAL ACCESS -----> Cheaper 1 dollar per tb per kmonth but before retrival we have to move the data from the other stoerage to normal and than access takes upto 12 hr to 24 hr
+                                        7.S3 intelligent ------> automatically selecvt storage classes based on the needs.
+                                        8.Amazon Outpost ---------> Physicall to your premuise
+
+
+Infrequent access -----> more than 30 days
+archive acces----------> more than 90
+deep archive ----------> more than 180 days
+
