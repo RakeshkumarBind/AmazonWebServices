@@ -345,3 +345,7 @@ There are different types of storages
 ## archive acces----------> more than 90
 ## deep archive ----------> more than 180 days
 
+
+# DATA LIFE CYCLE POLICY IN S3 BUCKET
+
+
