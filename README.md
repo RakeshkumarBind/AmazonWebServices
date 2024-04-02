@@ -349,3 +349,100 @@ There are different types of storages
 # DATA LIFE CYCLE POLICY IN S3 BUCKET
 
 
+# MOUNTING EFS 
+
+## 1. Go TO efs SERVICE
+   2. create elastic file system
+   3. make sure to create the efs in same region where your ec2 instance is created
+   4. You can create replicatiuon of your efs
+   5. Now you can select the type use elastic to upscale whenever workload increases.
+   6. Use provisioned when you know the exact workloads.
+   7. Now launch the ec2 instance and install the efs utility using command : sudo yum install amazon-efs-utils
+   8. Now create the mount point for munting the efs
+   9. Now go to efs console and click on attach there you will find the command for mounting via dns and ip .
+   10. Copy and paste in ec2 instance
+   11. There you will find error.
+   12. To resolve it go to efs networking there you will find the security group where nfs for instance is not enabled add inbound rules nfs and source = security group of ec2 instance
+   13. Now copuy paste the mount command and it ios mounted succesfull. 
+
+## sudo yum install -y amazon-efs-utils
+
+# AWS SNOW FAMILY
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/11d918f0-d1af-4708-911b-a3e375eb6621)
+
+<b> Purpose-built devices to cost effectively move petabytes of data, offline. Lease a Snow device to move your data to the cloud.</b>
+
+AWS Snow Family key features
+Each feature listed below are standard features across each device type. To learn more about AWS Snowcone or AWS Snowball device specifications unique to each device type, visit their feature pages.
+AWS Snow Family key features
+Each feature listed below are standard features across each device type. To learn more about AWS Snowcone or AWS Snowball device specifications unique to each device type, visit their feature pages.
+On-board computing
+Snow Family devices have computing resources to collect and process data at the edge. Devices can support Amazon EC2 instances, AWS IoT Greengrass functions, and Kubernetes deployments on Amazon EKS Anywhere.
+End-to-end tracking
+Each device uses an E-Ink shipping label for easy tracking and automatic label updates for return shipping using Amazon Simple Notification Service (SNS), text messages, and via the AWS Console.
+Simple management and monitoring
+AWS OpsHub is a complimentary graphical user interface (GUI) available to makes it easy to setup and manage Snow devices. Rapidly deploy edge computing workloads and migrate data to the cloud. Download AWS OpsHub here.
+Encryption
+All data moved to AWS Snow Family devices is automatically encrypted with 256-bit encryption keys that are managed by the AWS Key Management Service (KMS). Encryption keys are never stored on the device so your data stays secure during transit.
+Secure erasure
+Once the data migration job is complete and verified, AWS performs a software erasure of the device that follows the National Institute of Standards and Technology (NIST) guidelines for media sanitization.
+NFS endpoint
+Applications can work with Snow Family devices as an NFS mount point. NFS v3 and v4.1 are supported so you can easily use Snow devices with your existing on-premises servers and file-based applications.
+Anti-tamper & Tamper-evident
+AWS Snow devices feature a Trusted Platform Module (TPM) that provides a hardware root of trust. Each device is inspected after each use to ensure the integrity of the device and helps preserve the confidentiality of your data.
+
+# Creating a static web hosting on s3 bucket 
+
+STEPS: https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html
+       1. Create a s3 bucket with default configuration
+       2. Now enable static web hosting from properties of S3 bucket.
+       3. Add permission ----> allow all public access 
+       4. Only allowing the public is not enough we have to add bucket policy to get object from the s3 buckeyts : {
+   ## "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::Bucket-Name/*"
+            ]
+        }
+    ]
+}
+      5.Create the index.html file from chatgpt : Create a web page for grocesry store.include htpl code for webpage and create a beautifull web page .
+      6. Edit the index.html by pasrting the url of the object available in s3 bucket.
+      7.Now add the index.html file in root of s3 bucket 
+      8. Now from the properties you will get the link of static web hosting and you can see the result.
+
+SUCCESSFULLY CREATED
+
+# DATABASES IN AWS
+
+There are two types of databases
+1. Relational Database --------> Haviong relatuions like mysql, oracle
+2. Non Relational Database -------> Documents not relational like mongodb
+
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/a3c18c20-5e29-461f-ab1a-869fc3ade42c)
+
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/e0c3e5a3-be4f-48a2-a372-760790631ffd)
+
+
+
+
+## Note : IN amazon rds we have 2 security group
+one of the security group is attached to rds to allow inbound rules to connect all the instance having this security group
+one of the security group is attched to instance hich will have the outbound rules for connecting to thr datavbases.
+
+
+# MONITORING TOOLS
+
+# CLOUD TRAIL 
+Logs events in cloud trail by default 
+
+
