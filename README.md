@@ -444,5 +444,6 @@ one of the security group is attched to instance hich will have the outbound rul
 
 # CLOUD TRAIL 
 Logs events in cloud trail by default 
+![image](https://github.com/RakeshkumarBind/AmazonWebServices/assets/109387080/19b8bc9f-2720-4012-b960-7f57cd0c29e8)
 
 
