@@ -12,10 +12,10 @@ Solution :
  9. aws ec2 describe-instances
 
  ## HANDLING  MULTIPLE AWS ACCOUNTS 
-  1.Create multiple profile from different aws accounts
-  2. To create profiles use commands : aws configure --profile account1  ------> add the credentials of the user with that aws accounts.
-  3. Repeat same steps for multiple aws accounts.
-  4. By default the first aws account is set default 
+     1.Create multiple profile from different aws accounts
+     2. To create profiles use commands : aws configure --profile account1  ------> add the credentials of the user with that aws accounts.
+     3. Repeat same steps for multiple aws accounts.
+     4. By default the first aws account is set default 
 
   ## Solution -------> Configure the changes in /.aws/coonfig ------> edit the default part and define the profile you want to make it default.
 
